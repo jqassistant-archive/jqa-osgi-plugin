@@ -1,0 +1,11 @@
+= jQAssistant OSGi Plugin
+
+This is the OSGi Plugin of https://www.jqassistant.org[jQAssistant^].
+It enables jQAssistant to scan and to analyze OSGi related
+artifacts like:
+
+- bundles
+- activators
+- ...
+
+For more information on jQAssistant see https://www.jqassistant.org[^].
