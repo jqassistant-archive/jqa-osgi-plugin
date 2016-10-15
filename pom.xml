@@ -10,7 +10,14 @@
 
     <groupId>com.buschmais.jqassistant.plugin</groupId>
     <artifactId>osgi</artifactId>
+
     <name>jQAssistant OSGi Plugin</name>
+    <url>http://jqassistant.org/</url>
+
+    <description>
+        Plugin for jQAssistant to be able to scan and to
+        analyze OSGi related artifacts.
+    </description>
 
     <organization>
         <name>buschmais GbR</name>
