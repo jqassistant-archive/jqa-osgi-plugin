@@ -1,0 +1,5 @@
+== jQAssistant OSGi Plugin Version 1.2
+
+- Maven coordinates changed from `com.buschmais.jqassistant.plugin:jqassistant.plugin.osgi`
+  to `com.buschmais.jqassistant.plugin:osgi`.
+- No functional changes to version 1.1.3.
