@@ -1,0 +1,3 @@
+== jQAssistant OSGi Plugin Version 1.32
+
+- TBW
