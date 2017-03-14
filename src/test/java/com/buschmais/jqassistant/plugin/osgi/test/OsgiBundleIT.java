@@ -43,10 +43,8 @@ public class OsgiBundleIT extends AbstractJavaPluginIT {
 
     /**
      * Verifies the concept "osgi-bundle:Bundle".
-     * 
+     *
      * @throws IOException
-     *             If the test fails.
-     * @throws com.buschmais.jqassistant.core.analysis.api.AnalysisException
      *             If the test fails.
      */
     @Test
@@ -63,10 +61,8 @@ public class OsgiBundleIT extends AbstractJavaPluginIT {
 
     /**
      * Verifies the concept "osgi-bundle:ExportPackage".
-     * 
+     *
      * @throws IOException
-     *             If the test fails.
-     * @throws com.buschmais.jqassistant.core.analysis.api.AnalysisException
      *             If the test fails.
      */
     @Test
@@ -82,10 +78,8 @@ public class OsgiBundleIT extends AbstractJavaPluginIT {
 
     /**
      * Verifies the uniqueness of concept "osgi-bundle:ExportPackage" with keeping existing properties.
-     * 
+     *
      * @throws IOException
-     *             If the test fails.
-     * @throws com.buschmais.jqassistant.core.analysis.api.AnalysisException
      *             If the test fails.
      */
     @Test
@@ -107,10 +101,8 @@ public class OsgiBundleIT extends AbstractJavaPluginIT {
 
     /**
      * Verifies the concept "osgi-bundle:ImportPackage".
-     * 
+     *
      * @throws IOException
-     *             If the test fails.
-     * @throws com.buschmais.jqassistant.core.analysis.api.AnalysisException
      *             If the test fails.
      */
     @Test
@@ -127,10 +119,8 @@ public class OsgiBundleIT extends AbstractJavaPluginIT {
 
     /**
      * Verifies the uniqueness of concept "osgi-bundle:ImportPackage" with keeping existing properties.
-     * 
+     *
      * @throws IOException
-     *             If the test fails.
-     * @throws com.buschmais.jqassistant.core.analysis.api.AnalysisException
      *             If the test fails.
      */
     @Test
@@ -150,10 +140,8 @@ public class OsgiBundleIT extends AbstractJavaPluginIT {
 
     /**
      * Verifies the concept "osgi-bundle:Activator".
-     * 
+     *
      * @throws IOException
-     *             If the test fails.
-     * @throws com.buschmais.jqassistant.core.analysis.api.AnalysisException
      *             If the test fails.
      */
     @Test
@@ -169,10 +157,8 @@ public class OsgiBundleIT extends AbstractJavaPluginIT {
 
     /**
      * Verifies the uniqueness of concept "osgi-bundle:Activator" with keeping existing properties.
-     * 
+     *
      * @throws IOException
-     *             If the test fails.
-     * @throws com.buschmais.jqassistant.core.analysis.api.AnalysisException
      *             If the test fails.
      */
     @Test
@@ -192,10 +178,8 @@ public class OsgiBundleIT extends AbstractJavaPluginIT {
 
     /**
      * Verifies the concept "osgi-bundle:InternalType".
-     * 
+     *
      * @throws IOException
-     *             If the test fails.
-     * @throws com.buschmais.jqassistant.core.analysis.api.AnalysisException
      *             If the test fails.
      */
     @Test
@@ -214,10 +198,8 @@ public class OsgiBundleIT extends AbstractJavaPluginIT {
 
     /**
      * Verifies the constraint "osgi-bundle:UnusedInternalType".
-     * 
+     *
      * @throws IOException
-     *             If the test fails.
-     * @throws com.buschmais.jqassistant.core.analysis.api.AnalysisException
      *             If the test fails.
      */
     @Test
@@ -244,10 +226,8 @@ public class OsgiBundleIT extends AbstractJavaPluginIT {
 
     /**
      * Verifies the constraint "osgi-bundle:InternalTypeMustNotBePublic".
-     * 
+     *
      * @throws IOException
-     *             If the test fails.
-     * @throws com.buschmais.jqassistant.core.analysis.api.AnalysisException
      *             If the test fails.
      */
     @Test
