@@ -1,11 +1,12 @@
 package com.buschmais.jqassistant.plugin.osgi.test.impl;
 
+import java.util.Hashtable;
+
 import com.buschmais.jqassistant.plugin.osgi.test.api.service.Service;
+
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
-
-import java.util.Hashtable;
 
 /**
  * Example Activator.

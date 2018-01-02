@@ -1,25 +1,9 @@
 package com.buschmais.jqassistant.plugin.osgi.test;
 
-import static com.buschmais.jqassistant.core.analysis.api.Result.Status.FAILURE;
-import static com.buschmais.jqassistant.core.analysis.api.Result.Status.SUCCESS;
-import static com.buschmais.jqassistant.core.analysis.test.matcher.ConstraintMatcher.constraint;
-import static com.buschmais.jqassistant.core.analysis.test.matcher.ResultMatcher.result;
-import static com.buschmais.jqassistant.plugin.java.test.matcher.PackageDescriptorMatcher.packageDescriptor;
-import static com.buschmais.jqassistant.plugin.java.test.matcher.TypeDescriptorMatcher.typeDescriptor;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.hasItems;
-import static org.hamcrest.collection.IsMapContaining.hasValue;
-import static org.hamcrest.core.IsCollectionContaining.hasItem;
-import static org.junit.Assert.assertThat;
-
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-
-import org.hamcrest.Matcher;
-import org.hamcrest.Matchers;
-import org.junit.Test;
 
 import com.buschmais.jqassistant.core.analysis.api.Result;
 import com.buschmais.jqassistant.core.analysis.api.rule.Constraint;
@@ -35,6 +19,22 @@ import com.buschmais.jqassistant.plugin.osgi.test.impl.Activator;
 import com.buschmais.jqassistant.plugin.osgi.test.impl.ServiceImpl;
 import com.buschmais.jqassistant.plugin.osgi.test.impl.a.UsedPublicClass;
 import com.buschmais.jqassistant.plugin.osgi.test.impl.b.UnusedPublicClass;
+
+import org.hamcrest.Matcher;
+import org.hamcrest.Matchers;
+import org.junit.Test;
+
+import static com.buschmais.jqassistant.core.analysis.api.Result.Status.FAILURE;
+import static com.buschmais.jqassistant.core.analysis.api.Result.Status.SUCCESS;
+import static com.buschmais.jqassistant.core.analysis.test.matcher.ConstraintMatcher.constraint;
+import static com.buschmais.jqassistant.core.analysis.test.matcher.ResultMatcher.result;
+import static com.buschmais.jqassistant.plugin.java.test.matcher.PackageDescriptorMatcher.packageDescriptor;
+import static com.buschmais.jqassistant.plugin.java.test.matcher.TypeDescriptorMatcher.typeDescriptor;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.hasItems;
+import static org.hamcrest.collection.IsMapContaining.hasValue;
+import static org.hamcrest.core.IsCollectionContaining.hasItem;
+import static org.junit.Assert.assertThat;
 
 /**
  * Contains tests regarding manifest files.
