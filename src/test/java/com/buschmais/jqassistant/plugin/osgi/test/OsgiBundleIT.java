@@ -209,7 +209,7 @@ public class OsgiBundleIT extends AbstractJavaPluginIT {
         assertThat(validateConstraint("osgi-bundle:UnusedInternalType").getStatus(), equalTo(FAILURE));
         store.beginTransaction();
         Matcher<Constraint> constraintMatcher = constraint("osgi-bundle:UnusedInternalType");
-        Collection<Result<Constraint>> constraintViolations = reportWriter.getConstraintResults().values();
+        Collection<Result<Constraint>> constraintViolations = reportPlugin.getConstraintResults().values();
 
         // The explicitly given type information for Matcher#not() is required to allow
         // us to compile this class with JDK 8u31
@@ -237,7 +237,7 @@ public class OsgiBundleIT extends AbstractJavaPluginIT {
         assertThat(validateConstraint("osgi-bundle:InternalTypeMustNotBePublic").getStatus(), equalTo(FAILURE));
         store.beginTransaction();
         Matcher<Constraint> constraintMatcher = constraint("osgi-bundle:InternalTypeMustNotBePublic");
-        Collection<Result<Constraint>> constraintViolations = reportWriter.getConstraintResults().values();
+        Collection<Result<Constraint>> constraintViolations = reportPlugin.getConstraintResults().values();
         assertThat(constraintViolations, hasItem(result(constraintMatcher, hasItem(hasValue(typeDescriptor(UnusedPublicClass.class))))));
         assertThat(constraintViolations, hasItem(result(constraintMatcher, hasItem(hasValue(typeDescriptor(ServiceImpl.class))))));
 
