@@ -108,7 +108,7 @@ public class OsgiBundleIT extends AbstractJavaPluginIT {
     @Test
     public void importedPackages() throws Exception {
         scanClassPathDirectory(getClassesDirectory(Service.class));
-        query("create (:File:Container:Directory:Java:Package{fqn:'org.junit'})");
+        query("create (:File:Directory:Java:Package{fqn:'org.junit'})");
         assertThat(applyConcept("osgi-bundle:ImportPackage").getStatus(), equalTo(SUCCESS));
         store.beginTransaction();
         List<PackageDescriptor> packages = query("MATCH (b:Osgi:Bundle)-[:IMPORTS]->(p:Java:Package) RETURN p").getColumn("p");
@@ -128,7 +128,7 @@ public class OsgiBundleIT extends AbstractJavaPluginIT {
 		scanClassPathDirectory(getClassesDirectory(Service.class));
 		store.beginTransaction();
 		// create existing relations with property
-		query("create (:File:Container:Directory:Package{fqn:'org.junit'})");
+		query("create (:File:Directory:Package{fqn:'org.junit'})");
 		assertThat(query("MATCH (a:Artifact {fqn:'artifact'}), (p:Package {fqn:'org.junit'}) MERGE (a)-[r:IMPORTS {prop: 'value'}]->(p) RETURN r").getColumn("r").size(), equalTo(1));
 		verifyUniqueRelation("IMPORTS", 1);
 		store.commitTransaction();
