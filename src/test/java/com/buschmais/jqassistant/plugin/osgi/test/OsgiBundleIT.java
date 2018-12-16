@@ -22,7 +22,7 @@ import com.buschmais.jqassistant.plugin.osgi.test.impl.b.UnusedPublicClass;
 
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static com.buschmais.jqassistant.core.analysis.api.Result.Status.FAILURE;
 import static com.buschmais.jqassistant.core.analysis.api.Result.Status.SUCCESS;
