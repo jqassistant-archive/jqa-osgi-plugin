@@ -39,7 +39,7 @@
             where
               entry.name = "Export-Package"
               AND entry.value=~ pattern
-            create unique
+            merge
               (bundle)-[:EXPORTS]->(package)
             return
               bundle as Bundle, collect(package) as ExportedPackages
@@ -63,7 +63,7 @@
             where
               entry.name = "Import-Package"
               and entry.value =~ pattern
-            create unique
+            merge
               (bundle)-[:IMPORTS]->(package)
             return
               bundle as Bundle, collect(package) as ImportedPackages
@@ -85,7 +85,7 @@
             where
               entry.name = "Bundle-Activator"
               and entry.value = activator.fqn
-            create unique
+            merge
               (activator)-[:ACTIVATES]->(bundle)
             return
               activator as Activator, bundle as Bundle

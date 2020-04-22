@@ -88,9 +88,9 @@ public class OsgiBundleIT extends AbstractJavaPluginIT {
       	store.beginTransaction();
         // create existing relations with and without properties
         Map<String, Object> params = MapBuilder.<String, Object> create("package", Service.class.getPackage().getName()).get();
-        assertThat(query("MATCH (a:Artifact {fqn:'artifact'}), (p:Package) WHERE p.fqn={package} MERGE (a)-[r:EXPORTS {prop: 'value'}]->(p) RETURN r", params).getColumn("r").size(), equalTo(1));
+        assertThat(query("MATCH (a:Artifact {fqn:'artifact'}), (p:Package) WHERE p.fqn=$package MERGE (a)-[r:EXPORTS {prop: 'value'}]->(p) RETURN r", params).getColumn("r").size(), equalTo(1));
         params = MapBuilder.<String, Object> create("package", Request.class.getPackage().getName()).get();
-        assertThat(query("MATCH (a:Artifact {fqn:'artifact'}), (p:Package) WHERE p.fqn={package} MERGE (a)-[r:EXPORTS]->(p) RETURN r", params).getColumn("r").size(), equalTo(1));
+        assertThat(query("MATCH (a:Artifact {fqn:'artifact'}), (p:Package) WHERE p.fqn=$package MERGE (a)-[r:EXPORTS]->(p) RETURN r", params).getColumn("r").size(), equalTo(1));
         verifyUniqueRelation("EXPORTS", 2);
         store.commitTransaction();
         assertThat(applyConcept("osgi-bundle:ExportPackage").getStatus(), equalTo(SUCCESS));
@@ -167,7 +167,7 @@ public class OsgiBundleIT extends AbstractJavaPluginIT {
         store.beginTransaction();
         // create existing relations with property
         Map<String, Object> params = MapBuilder.<String, Object> create("activator", Activator.class.getName()).get();
-		assertThat(query("MATCH (a:Artifact {fqn:'artifact'}), (c:Class) WHERE c.fqn={activator} MERGE (c)-[r:ACTIVATES {prop: 'value'}]->(a) RETURN r", params).getColumn("r").size(), equalTo(1));
+		assertThat(query("MATCH (a:Artifact {fqn:'artifact'}), (c:Class) WHERE c.fqn=$activator MERGE (c)-[r:ACTIVATES {prop: 'value'}]->(a) RETURN r", params).getColumn("r").size(), equalTo(1));
         verifyUniqueRelation("ACTIVATES", 1);
         store.commitTransaction();
         assertThat(applyConcept("osgi-bundle:Activator").getStatus(), equalTo(SUCCESS));
