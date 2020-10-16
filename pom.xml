@@ -44,6 +44,7 @@
         <jqa-java-plugin.version>1.9.0-SNAPSHOT</jqa-java-plugin.version>
         <jqa-junit-plugin.version>1.9.0-SNAPSHOT</jqa-junit-plugin.version>
         <jqa-maven3-plugin.version>1.9.0-SNAPSHOT</jqa-maven3-plugin.version>
+        <asciidoctor.toplevelid>osgi-plugin</asciidoctor.toplevelid>
     </properties>
 
     <build>
