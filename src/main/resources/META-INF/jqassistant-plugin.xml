@@ -1,6 +1,9 @@
-<v1:jqassistant-plugin xmlns:v1="http://www.buschmais.com/jqassistant/core/plugin/schema/v1.4" name="OSGi">
+<jpd:jqassistant-plugin xmlns:jpd="http://schema.jqassistant.org/plugin/v1.10"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xsi:schemaLocation="http://schema.jqassistant.org/plugin/v1.10 https://schema.jqassistant.org/plugin/jqassistant-plugin-v1.10.xsd"
+                        name="OSGi" id="jqa.plugin.osgi">
     <description>Provides rules for OSGi bundles (e.g. Bundles, Activator).</description>
     <rules>
         <resource>osgi-bundle.xml</resource>
     </rules>
-</v1:jqassistant-plugin>
+</jpd:jqassistant-plugin>
