@@ -4,13 +4,13 @@
     <parent>
         <groupId>com.buschmais.jqassistant.plugin</groupId>
         <artifactId>parent</artifactId>
-        <version>1.10.0-SNAPSHOT</version>
+        <version>1.10.0-ALPHA1</version>
         <relativePath/>
     </parent>
 
     <groupId>com.buschmais.jqassistant.plugin</groupId>
     <artifactId>osgi</artifactId>
-    <version>1.10.0-SNAPSHOT</version>
+    <version>1.10.0-ALPHA1</version>
 
     <name>jQAssistant OSGi Plugin</name>
     <url>http://jqassistant.org/</url>
@@ -40,10 +40,10 @@
     </scm>
 
     <properties>
-        <jqa-plugin-common.version>1.10.0-SNAPSHOT</jqa-plugin-common.version>
-        <jqa-java-plugin.version>1.10.0-SNAPSHOT</jqa-java-plugin.version>
-        <jqa-junit-plugin.version>1.10.0-SNAPSHOT</jqa-junit-plugin.version>
-        <jqa-maven3-plugin.version>1.10.0-SNAPSHOT</jqa-maven3-plugin.version>
+        <jqa-plugin-common.version>1.10.0-ALPHA1</jqa-plugin-common.version>
+        <jqa-java-plugin.version>1.10.0-ALPHA1</jqa-java-plugin.version>
+        <jqa-junit-plugin.version>1.10.0-ALPHA1</jqa-junit-plugin.version>
+        <jqa-maven3-plugin.version>1.10.0-ALPHA1</jqa-maven3-plugin.version>
         <asciidoctor.toplevelid>osgi-plugin</asciidoctor.toplevelid>
     </properties>
 
