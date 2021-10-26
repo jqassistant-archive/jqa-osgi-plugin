@@ -1,6 +1,6 @@
 = jQAssistant OSGi Plugin
 
-This is the OSGi Plugin of https://www.jqassistant.org[jQAssistant^].
+This is the OSGi Plugin of https://jqassistant.org[jQAssistant^].
 It enables jQAssistant to scan and to analyze OSGi related
 artifacts like:
 
@@ -8,4 +8,4 @@ artifacts like:
 - activators
 - ...
 
-For more information on jQAssistant see https://www.jqassistant.org[^].
+For more information on jQAssistant see https://jqassistant.org[^].
