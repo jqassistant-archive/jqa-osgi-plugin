@@ -7,7 +7,7 @@ import java.util.Map;
 
 import com.buschmais.jqassistant.core.report.api.model.Result;
 import com.buschmais.jqassistant.core.rule.api.model.Constraint;
-import com.buschmais.jqassistant.plugin.common.test.scanner.MapBuilder;
+import com.buschmais.jqassistant.core.shared.map.MapBuilder;
 import com.buschmais.jqassistant.plugin.java.api.model.PackageDescriptor;
 import com.buschmais.jqassistant.plugin.java.api.model.TypeDescriptor;
 import com.buschmais.jqassistant.plugin.java.api.scanner.JavaScope;
@@ -87,9 +87,9 @@ class OsgiBundleIT extends AbstractJavaPluginIT {
     	scanClassPathDirectory(getClassesDirectory(Service.class));
       	store.beginTransaction();
         // create existing relations with and without properties
-        Map<String, Object> params = MapBuilder.<String, Object> create("package", Service.class.getPackage().getName()).get();
+        Map<String, Object> params = MapBuilder.<String, Object> builder().entry("package", Service.class.getPackage().getName()).build();
         assertThat(query("MATCH (a:Artifact {fqn:'artifact'}), (p:Package) WHERE p.fqn=$package MERGE (a)-[r:EXPORTS {prop: 'value'}]->(p) RETURN r", params).getColumn("r").size(), equalTo(1));
-        params = MapBuilder.<String, Object> create("package", Request.class.getPackage().getName()).get();
+        params = MapBuilder.<String, Object> builder().entry("package", Request.class.getPackage().getName()).build();
         assertThat(query("MATCH (a:Artifact {fqn:'artifact'}), (p:Package) WHERE p.fqn=$package MERGE (a)-[r:EXPORTS]->(p) RETURN r", params).getColumn("r").size(), equalTo(1));
         verifyUniqueRelation("EXPORTS", 2);
         store.commitTransaction();
@@ -166,7 +166,7 @@ class OsgiBundleIT extends AbstractJavaPluginIT {
     	scanClassPathDirectory(getClassesDirectory(Service.class));
         store.beginTransaction();
         // create existing relations with property
-        Map<String, Object> params = MapBuilder.<String, Object> create("activator", Activator.class.getName()).get();
+        Map<String, Object> params = MapBuilder.<String, Object> builder().entry("activator", Activator.class.getName()).build();
 		assertThat(query("MATCH (a:Artifact {fqn:'artifact'}), (c:Class) WHERE c.fqn=$activator MERGE (c)-[r:ACTIVATES {prop: 'value'}]->(a) RETURN r", params).getColumn("r").size(), equalTo(1));
         verifyUniqueRelation("ACTIVATES", 1);
         store.commitTransaction();
