@@ -53,9 +53,9 @@ class OsgiBundleIT extends AbstractJavaPluginIT {
         assertThat(applyConcept("osgi-bundle:Bundle").getStatus(), equalTo(SUCCESS));
         store.beginTransaction();
         assertThat(
-                query(
-                        "MATCH (bundle:Osgi:Bundle) WHERE bundle.bundleSymbolicName='com.buschmais.jqassistant.plugin.osgi.test' and bundle.bundleVersion='0.1.0' RETURN bundle")
-                        .getColumn("bundle").size(), equalTo(1));
+            query(
+                "MATCH (bundle:Osgi:Bundle) WHERE bundle.bundleSymbolicName='com.buschmais.jqassistant.plugin.osgi.test' and bundle.bundleVersion='0.1.0' RETURN bundle")
+                .getColumn("bundle").size(), equalTo(1));
         store.commitTransaction();
     }
 
@@ -84,8 +84,8 @@ class OsgiBundleIT extends AbstractJavaPluginIT {
      */
     @Test
     void exportedPackagesUnique() throws Exception {
-    	scanClassPathDirectory(getClassesDirectory(Service.class));
-      	store.beginTransaction();
+        scanClassPathDirectory(getClassesDirectory(Service.class));
+        store.beginTransaction();
         // create existing relations with and without properties
         Map<String, Object> params = MapBuilder.<String, Object> builder().entry("package", Service.class.getPackage().getName()).build();
         assertThat(query("MATCH (a:Artifact {fqn:'artifact'}), (p:Package) WHERE p.fqn=$package MERGE (a)-[r:EXPORTS {prop: 'value'}]->(p) RETURN r", params).getColumn("r").size(), equalTo(1));
@@ -125,17 +125,17 @@ class OsgiBundleIT extends AbstractJavaPluginIT {
      */
     @Test
     void importedPackagesUnique() throws Exception {
-		scanClassPathDirectory(getClassesDirectory(Service.class));
-		store.beginTransaction();
-		// create existing relations with property
-		query("create (:File:Directory:Package{fqn:'org.junit'})");
-		assertThat(query("MATCH (a:Artifact {fqn:'artifact'}), (p:Package {fqn:'org.junit'}) MERGE (a)-[r:IMPORTS {prop: 'value'}]->(p) RETURN r").getColumn("r").size(), equalTo(1));
-		verifyUniqueRelation("IMPORTS", 1);
-		store.commitTransaction();
-		assertThat(applyConcept("osgi-bundle:ImportPackage").getStatus(), equalTo(SUCCESS));
-		store.beginTransaction();
-		verifyUniqueRelation("IMPORTS", 1);
-		store.commitTransaction();
+        scanClassPathDirectory(getClassesDirectory(Service.class));
+        store.beginTransaction();
+        // create existing relations with property
+        query("create (:File:Directory:Package{fqn:'org.junit'})");
+        assertThat(query("MATCH (a:Artifact {fqn:'artifact'}), (p:Package {fqn:'org.junit'}) MERGE (a)-[r:IMPORTS {prop: 'value'}]->(p) RETURN r").getColumn("r").size(), equalTo(1));
+        verifyUniqueRelation("IMPORTS", 1);
+        store.commitTransaction();
+        assertThat(applyConcept("osgi-bundle:ImportPackage").getStatus(), equalTo(SUCCESS));
+        store.beginTransaction();
+        verifyUniqueRelation("IMPORTS", 1);
+        store.commitTransaction();
     }
 
     /**
@@ -163,11 +163,11 @@ class OsgiBundleIT extends AbstractJavaPluginIT {
      */
     @Test
     void activatorUnique() throws Exception {
-    	scanClassPathDirectory(getClassesDirectory(Service.class));
+        scanClassPathDirectory(getClassesDirectory(Service.class));
         store.beginTransaction();
         // create existing relations with property
         Map<String, Object> params = MapBuilder.<String, Object> builder().entry("activator", Activator.class.getName()).build();
-		assertThat(query("MATCH (a:Artifact {fqn:'artifact'}), (c:Class) WHERE c.fqn=$activator MERGE (c)-[r:ACTIVATES {prop: 'value'}]->(a) RETURN r", params).getColumn("r").size(), equalTo(1));
+        assertThat(query("MATCH (a:Artifact {fqn:'artifact'}), (c:Class) WHERE c.fqn=$activator MERGE (c)-[r:ACTIVATES {prop: 'value'}]->(a) RETURN r", params).getColumn("r").size(), equalTo(1));
         verifyUniqueRelation("ACTIVATES", 1);
         store.commitTransaction();
         assertThat(applyConcept("osgi-bundle:Activator").getStatus(), equalTo(SUCCESS));
@@ -190,9 +190,9 @@ class OsgiBundleIT extends AbstractJavaPluginIT {
         store.beginTransaction();
         List<TypeDescriptor> internalTypes = query("MATCH (t:Type:Internal) RETURN t").getColumn("t");
         assertThat(
-                internalTypes,
-                hasItems(typeDescriptor(Activator.class), typeDescriptor(UsedPublicClass.class), typeDescriptor(UnusedPublicClass.class),
-                        typeDescriptor(ServiceImpl.class)));
+            internalTypes,
+            hasItems(typeDescriptor(Activator.class), typeDescriptor(UsedPublicClass.class), typeDescriptor(UnusedPublicClass.class),
+                     typeDescriptor(ServiceImpl.class)));
         store.commitTransaction();
     }
 
@@ -258,7 +258,7 @@ class OsgiBundleIT extends AbstractJavaPluginIT {
      * @param total The total of relations with the given name.
      */
     private void verifyUniqueRelation(String relationName, int total) {
-    	assertThat(query("MATCH ()-[r:" + relationName + " {prop: 'value'}]->() RETURN r").getColumn("r").size(), equalTo(1));
-    	assertThat(query("MATCH ()-[r:" + relationName + "]->() RETURN r").getColumn("r").size(), equalTo(total));
+        assertThat(query("MATCH ()-[r:" + relationName + " {prop: 'value'}]->() RETURN r").getColumn("r").size(), equalTo(1));
+        assertThat(query("MATCH ()-[r:" + relationName + "]->() RETURN r").getColumn("r").size(), equalTo(total));
     }
 }
